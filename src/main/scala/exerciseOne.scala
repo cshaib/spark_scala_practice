@@ -12,12 +12,6 @@ object exerciseOne extends App {
     // set logging level
     spark.sparkContext.setLogLevel("ERROR")
 
-    val rootLogger = Logger.getRootLogger()
-    rootLogger.setLevel(Level.ERROR)
-
-    Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
-    Logger.getLogger("org.spark-project").setLevel(Level.WARN)
-
     // read in example pipe-separated file into Dataframe
     val rawDf = spark.read.format("csv")
       .option("header", "false")
